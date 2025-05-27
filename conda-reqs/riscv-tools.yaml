@@ -6,6 +6,7 @@ channels:
 
 platforms:
     - linux-64
+    - osx-64
 
 dependencies:
     # https://conda-forge.org/feedstock-outputs/

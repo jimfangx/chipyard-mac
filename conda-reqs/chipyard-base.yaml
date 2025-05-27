@@ -6,6 +6,7 @@ channels:
 
 platforms:
     - linux-64
+    - osx-64
 
 dependencies:
     # https://conda-forge.org/feedstock-outputs/
@@ -14,11 +15,14 @@ dependencies:
     #   instructions on adding a recipe
     # https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/pkg-specs.html#package-match-specifications
     #   documentation on package_spec syntax for constraining versions
-    - gcc=13.2
-    - gxx=13.2
-    - sysroot_linux-64=2.34 # need to be close to system glibc for VCS compatibility
-    - conda-gcc-specs
-    - binutils
+    # - gcc=13.2
+    # - gxx=13.2
+    # - sysroot_linux-64=2.34 # need to be close to system glibc for VCS compatibility
+    # - conda-gcc-specs
+    # - binutils
+    - llvm-tools
+    - clang
+    - clangxx
 
     # misc
     - autoconf
@@ -32,7 +36,7 @@ dependencies:
     - sbt
     - openjdk=20
     - dtc
-    - verilator==5.022
+    - verilator
 
     # used in build-setup.sh as well
     - conda-lock=2.5.7

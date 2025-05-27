@@ -99,16 +99,23 @@ echo '==> Installing espresso logic minimizer'
 # Common tools (not in any particular toolchain dir)
 
 echo '==>  Installing libgloss'
-CC= CXX= SRCDIR="$(pwd)/toolchains" module_all libgloss --prefix="${RISCV}/riscv${XLEN}-unknown-elf" --host=riscv${XLEN}-unknown-elf
+CC= CXX= SRCDIR="$(pwd)/toolchains" module_all libgloss --prefix="${RISCV}/riscv${XLEN}-unknown-elf" --host=riscv${XLEN}-unknown-elf --enable-multilib="\
+    rv32i_zicsr/ilp32 \
+    rv32im_zicsr/ilp32 \
+    rv32iac_zicsr/ilp32 \
+    rv32imac_zicsr/ilp32 \
+    rv32imafc_zicsr/ilp32f \
+    rv64imac_zicsr/lp64 \
+    rv64imafdc_zicsr_zifencei/lp64d"
 
-cd $RDIR
-if [ $TOOLCHAIN == "riscv-tools" ]; then
-    echo '==> Installing gemmini spike extensions'
-    git submodule update --init generators/gemmini
-    cd generators/gemmini
-    git submodule update --init software/libgemmini
-    make -C $RDIR/generators/gemmini/software/libgemmini install
-fi
+# cd $RDIR
+# if [ $TOOLCHAIN == "riscv-tools" ]; then
+#     echo '==> Installing gemmini spike extensions'
+#     git submodule update --init generators/gemmini
+#     cd generators/gemmini
+#     git submodule update --init software/libgemmini
+#     make -C $RDIR/generators/gemmini/software/libgemmini install
+# fi
 
 echo '==>  Installing DRAMSim2 Shared Library'
 cd $RDIR

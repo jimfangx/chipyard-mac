@@ -6,6 +6,7 @@ channels:
 
 platforms:
     - linux-64
+    - osx-64
 
 dependencies:
     # handy tool for introspecting package relationships and file ownership
