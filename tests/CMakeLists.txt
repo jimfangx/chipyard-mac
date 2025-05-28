@@ -11,6 +11,22 @@
 ########################################################################################################################
 cmake_minimum_required(VERSION 3.10)
 
+# ------------------------------------------------------------------
+# Disable Apple-specific defaults **before** language enable:
+set(CMAKE_OSX_ARCHITECTURES "" CACHE STRING "" FORCE)
+set(CMAKE_OSX_SYSROOT       "" CACHE STRING "" FORCE)
+# ------------------------------------------------------------------
+
+# RISC-V cross tool-chain
+set(CMAKE_SYSTEM_NAME      Generic)
+set(CMAKE_SYSTEM_PROCESSOR riscv)
+
+set(TOOLCHAIN_PREFIX "riscv64-unknown-elf-")
+set(CMAKE_C_COMPILER   "${TOOLCHAIN_PREFIX}gcc")
+set(CMAKE_CXX_COMPILER "${TOOLCHAIN_PREFIX}g++")
+# …other tools…
+# ------------------------------------------------------------------
+
 project(chipyard-tests LANGUAGES C CXX)
 
 
@@ -46,7 +62,7 @@ set(CMODEL              "medany")
 set(ARCH_FLAGS          -march=${ARCH} -mabi=${ABI} -mcmodel=${CMODEL})
 
 # spec
-set(SPECS               "htif_nano.specs")
+set(SPECS               "htif.specs")
 set(SPEC_FLAGS          -specs=${SPECS})
 
 # linker script
@@ -55,6 +71,7 @@ set(LINKER_SCRIPT       "htif.ld")
 add_compile_options(-std=gnu99)
 add_compile_options(-O2 -Wall -Wextra)
 add_compile_options(-fno-common -fno-builtin-printf)
+add_compile_options(-Wno-error=implicit-function-declaration) # Under -std=gnu99 (or any C99 / C11 / C17 dialect) an implicit declaration is a mandatory error - this Keep C99+ but downgrade the error to a warning
 add_compile_options(${ARCH_FLAGS})
 add_compile_options(${SPEC_FLAGS})
 

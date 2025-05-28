@@ -330,10 +330,12 @@ if run_step "10"; then
     else
 	echo "Downloading CIRCT from nightly build"
 
+    # -f circt-full-static-linux-x64.tar.gz \
+        # -i $PREFIX \
 	git submodule update --init $CYDIR/tools/install-circt &&
 	    $CYDIR/tools/install-circt/bin/download-release-or-nightly-circt.sh \
-		-f circt-full-static-linux-x64.tar.gz \
-		-i $PREFIX \
+		-f circt-full-static-macos-x64.tar.gz \
+		-i $CYDIR/.conda-env \
 		-v version-file \
 		-x $CYDIR/conda-reqs/circt.json \
 		-g $GITHUB_TOKEN

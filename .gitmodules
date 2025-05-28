@@ -60,7 +60,7 @@
 	url = https://github.com/ucb-bar/shuttle.git
 [submodule "generators/testchipip"]
 	path = generators/testchipip
-	url = https://github.com/ucb-bar/testchipip.git
+	url = https://github.com/jimfangx/testchipip-mac.git
 [submodule "sims/firesim"]
 	path = sims/firesim
 	url = https://github.com/firesim/firesim.git
@@ -96,7 +96,7 @@
 	url = https://github.com/riscv-software-src/riscv-pk.git
 [submodule "toolchains/riscv-tools/riscv-spike-devices"]
 	path = toolchains/riscv-tools/riscv-spike-devices
-	url = https://github.com/ucb-bar/spike-devices.git
+	url = https://github.com/jimfangx/spike-devices-mac.git
 [submodule "toolchains/riscv-tools/riscv-tests"]
 	path = toolchains/riscv-tools/riscv-tests
 	url = https://github.com/riscv-software-src/riscv-tests.git
@@ -105,7 +105,7 @@
 	url = https://github.com/ucb-bar/riscv-tools-feedstock.git
 [submodule "tools/DRAMSim2"]
 	path = tools/DRAMSim2
-	url = https://github.com/firesim/DRAMSim2.git
+	url = https://github.com/jimfangx/ucb-DRAMSim2-mac.git
 [submodule "tools/axe"]
 	path = tools/axe
 	url = https://github.com/CTSRD-CHERI/axe.git

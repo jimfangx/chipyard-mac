@@ -1,4 +1,5 @@
-SHELL=/bin/bash
+# SHELL=/bin/bash
+SHELL := /opt/homebrew/bin/bash
 SED ?= sed
 
 ifndef RISCV

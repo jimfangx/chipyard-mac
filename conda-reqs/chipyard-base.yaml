@@ -36,7 +36,7 @@ dependencies:
     - sbt
     - openjdk=20
     - dtc
-    - verilator
+    - verilator==5.022
 
     # used in build-setup.sh as well
     - conda-lock=2.5.7
